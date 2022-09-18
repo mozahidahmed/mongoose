@@ -20,10 +20,10 @@ const productSchema = mongoose.Schema({
         minLength: [3, "name must be 3 character"],
         maxLength: [100, "Name is too large "]
     },
-    // description: {
-    //     type: String,
-    //     required: true,
-    // },
+    description: {
+        type: String,
+        required: true,
+    },
 
     price: {
         type: Number,
@@ -31,41 +31,41 @@ const productSchema = mongoose.Schema({
         min: [0, "price can be negative"],
     },
 
-    // unit: {
-    //     type: String,
-    //     required: true,
-    //     enum: {
-    //         values: ["kg", "litre", "pcs"],
-    //         message: `user can not be {VALUE}, must be kg/litre/pcs`
-    //     }
-    // },
+    unit: {
+        type: String,
+        required: true,
+        enum: {
+            values: ["kg", "litre", "pcs"],
+            message: 'user can not be {VALUE}, must be kg/litre/pcs'
+        }
+    },
 
-    // Quantity: {
-    //     type: Number,
-    //     required: true,
-    //     min: [0, "quantity can be negative"],
-    //     validate: {
-    //         validator: (value) => {
-    //             const isInteger = Number.isInteger(value);
-    //             if (isInteger) {
-    //                 return true;
-    //             }
-    //             else {
-    //                 return false;
-    //             }
-    //         }
-    //     },
-    //     message: "quantity must be a an integer"
-    // },
+    quantity: {
+        type: Number,
+        required: true,
+        min: [0, "quantity can be negative"],
+        validate: {
+            validator: (value) => {
+                const isInteger = Number.isInteger(value);
+                if (isInteger) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+        },
+        message: "quantity must be a an integer"
+    },
 
 
-    // status: {
-    //     type: String,
-    //     enum: {
-    //         values: ["in-stock", "out-stock", "discontinued"],
-    //         message: `status can be {VALUE}`
-    //     }
-    // },
+    status: {
+        type: String,
+        enum: {
+            values: ["in-stock", "out-stock", "discontinued"],
+            message: 'status can be {VALUE}'
+        }
+    },
 
 
 
@@ -101,10 +101,49 @@ const productSchema = mongoose.Schema({
 // Schema.............................................................
 
 
+
+
+
+// middle ware mongoose for saving data pre/post
+productSchema.pre('save',function(next){
+    console.log("i am pre middle ware ")
+    if(this.quantity === 0){
+        this.status='out-stock'
+    }
+    next()
+})
+
+productSchema.post('save',function(doc,next){
+    console.log("i am save middle ware ")
+    next()
+})
+
+
+
+
+
+
 // SCHEMA > MODAL > QUERY
 const Product = mongoose.model('products', productSchema)
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+// .........................................................................................
+
+                                //    get/post/ data
+
+// .........................................................................................
 // get data
 app.get('/', (req, res) => {
     res.send("Hello world!! my name is mozahid i am connetted")
