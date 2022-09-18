@@ -16,7 +16,14 @@ app.listen(port,()=>{
 
 
 
-
+// {
+//     "name":"Dall",
+//     "description":"kadsjflskjflskd",
+//     "price":70,
+//     "unit":"kg",
+//     "quantity":455,
+//     "status":"in-stock"
+//   }
 
 
 
