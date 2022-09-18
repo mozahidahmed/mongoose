@@ -1,0 +1,9 @@
+// 1.MONGOOSE SERVER SETUP
+// 2.SCHEMA DESIGN
+// 3.INSERT DATA POST/GET ( save and create system)
+// 4.MIDDLEWARE
+// 5.INSTANCE METHOD 
+
+
+
+

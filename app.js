@@ -120,6 +120,14 @@ productSchema.post('save',function(doc,next){
 
 
 
+// instance Method
+productSchema.methods.logger=function(){
+    console.log(`Data save for ${this.name}`)
+}
+
+
+
+
 
 
 
@@ -154,6 +162,7 @@ app.get('/', (req, res) => {
 app.post('/product', async(req, res, next) => {
     try{
         const result = await Product.create(req.body); 
+        result.logger()
     // const product = new Product(req.body);
     // const result=await product.save()
     res.status(200).json({
