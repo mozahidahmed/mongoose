@@ -185,6 +185,27 @@ app.post('/product', async(req, res, next) => {
 })
 
 
+app.get('/product', async(req, res, next) => {
+    try{
+        const result = await Product.find({}); 
+        res.status(200).json({
+        status: 'success',
+        message:'Data get success',
+        data:result,
+    })
+    }catch(error){
+        res.status(404).json({
+            status: 'fail get data',
+            message:'Data get success fail',
+            error:error.message
+        })
+    }  
+})
+
+
+
+
+
 
 
 module.exports = app;
