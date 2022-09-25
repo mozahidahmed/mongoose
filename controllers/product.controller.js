@@ -1,6 +1,6 @@
 const { getProductsService, createProductsService } = require("../services/product.services")
 
-
+// get controller
 exports.getProducts=async(req, res, next) => {
     try{
         const result = await getProductsService()
@@ -19,6 +19,7 @@ exports.getProducts=async(req, res, next) => {
 }
 
 
+// post controller
 exports.createProduct=async(req, res, next) => {
     try{
         const result = await createProductsService(req.body); 

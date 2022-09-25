@@ -13,6 +13,16 @@
 
 
 
+// final learn
+// 1.App.js (route)
+// 2.Route create
+// 3.Controller create
+// 4.Service (optional this is important for large application)
+
+
+
+
+
 
 
 

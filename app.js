@@ -39,7 +39,7 @@ app.get('/', (req, res) => {
 // insert data
 app.use('/product',productRoute)
 
-app.use('/product',productRoute)
+
 
 
 
