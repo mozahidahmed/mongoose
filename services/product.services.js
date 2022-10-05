@@ -1,7 +1,7 @@
 const Product=require('../models/Product')
 
 
-// ger mongoose function
+// get mongoose function
 exports.getProductsService=async ()=>{
    const products= await Product.find({}); 
    return products;
@@ -55,6 +55,8 @@ exports.bulkUpdateProductsService=async (data)=>{
 
 
 
+
+ 
    // {
   
    //    "ids": [
@@ -80,3 +82,13 @@ exports.bulkUpdateProductsService=async (data)=>{
 
 
 }
+
+
+
+exports.deleteProductsService=async (id)=>{
+   const result=await Product.deleteOne({_id:id})
+   return result;
+
+
+
+ }
