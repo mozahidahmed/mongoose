@@ -17,7 +17,8 @@
 // 1.App.js (route)
 // 2.Route create
 // 3.Controller create
-// 4.Service (optional this is important for large application)
+// 4.service ( function)
+// 5.Service (optional this is important for large application)
 
 
 
